@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Registrar.Models;
+using System.Security.Authentication;
+using Microsoft.AspNetCore.Hosting;
 
 namespace Registrar
 {

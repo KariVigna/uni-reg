@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Registrar.Models.Course;
+@using Registrar.Models;
+@using System.Collections.Generic;
+
+<h2>Course Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+
+    <p>This course does not contain any students</p>
+
+
+@* @if(@Model.Students.Count == 0)
+{
+    <p>This course does not contain any students</p>
+}
+else
+{
+    <h4>Students enrolled in this course:</h4>
+} *@

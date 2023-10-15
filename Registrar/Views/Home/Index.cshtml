@@ -4,5 +4,14 @@
 
 <h1>Welcome to the University Registrar!</h1>
 
-<p>@Html.ActionLink("Create new course", "Create", "Courses")</p>
+<!-- <p>@Html.ActionLink("Create new course", "Create", "Courses")</p>
 <p>@Html.ActionLink("See all courses", "Index", "Courses")</p>
+<p>@Html.ActionLink("Create new student", "Create", "Students")</p>
+<p>@Html.ActionLink("See all students", "Index", "Students")</p>
+<p>@Html.ActionLink("Add new department", "Create", "Departments")</p>
+<p>@Html.ActionLink("See all departments", "Index", "Departments")</p> -->
+
+<p>@Html.ActionLink("See all courses", "Index", "Courses") <i class="fa-solid fa-book"></i>
+ @Html.ActionLink("Create new course", "Create", "Courses")</p>
+<p>@Html.ActionLink("See all students", "Index", "Students") <span class="fa-solid fa-graduation-cap"></span> @Html.ActionLink("Create new student", "Create", "Students")</p>
+<p>@Html.ActionLink("See all departments", "Index", "Departments") <i class="fa-solid fa-school"></i> @Html.ActionLink("Create new department", "Create", "Departments")</p>

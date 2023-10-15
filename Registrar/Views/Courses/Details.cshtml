@@ -2,22 +2,37 @@
   Layout = "_Layout";
 }
 
-@model Registrar.Models.Course;
-@using Registrar.Models;
-@using System.Collections.Generic;
+@model Registrar.Models.Course
+@using Registrar.Models
+@using System.Collections.Generic
 
 <h2>Course Details</h2>
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+<h4>@Html.DisplayNameFor(model => model.CourseNum): @Html.DisplayFor(model => model.CourseNum)</h4>
 
-    <p>This course does not contain any students</p>
-
-
-@* @if(@Model.Students.Count == 0)
+@if(@Model.JoinEntities.Count == 0)
 {
     <p>This course does not contain any students</p>
 }
 else
 {
     <h4>Students enrolled in this course:</h4>
-} *@
+    <ul>
+        @foreach(CourseStudent join in Model.JoinEntities)
+        {
+            <li>@join.Student.Name</li>
+            @using (Html.BeginForm("DeleteJoin", "Courses"))
+            {
+                @Html.Hidden("joinId", @join.CourseStudentId)
+                <input type="submit" value="delete"/>
+            }
+        }
+    </ul>
+} 
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Edit Course", "Edit", new { id = Model.CourseId })</p>
+<p>@Html.ActionLink("Add a Student", "AddStudent", new { id = Model.CourseId })</p>
+<p>@Html.ActionLink("Delete course", "Delete", new { id = Model.CourseId })</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

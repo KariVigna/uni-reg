@@ -1,0 +1,37 @@
+@{
+    Layout = "_Layout";
+}
+
+@model Registrar.Models.Department
+@using Registrar.Models
+@using System.Collections.Generic
+
+<h2>Department Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+
+@if(@Model.JoinEntities.Count == 0)
+{
+    <p>This department does not contain any students</p>
+}
+else
+{
+    <h4>Students assignd to this department:</h4>
+    <ul>
+        @foreach(DepartmentStudent join in Model.JoinEntities)
+        {
+            <li>@join.Student.Name</li>
+            @using (Html.BeginForm("DeleteJoin", "Departments"))
+            {
+                @Html.Hidden("joinId", @join.DepartmentStudentId)
+                <input type="submit" value="delete"/>
+            }
+        }
+    </ul>
+} 
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Edit Course", "Edit", new { id = Model.DepartmentId })</p>
+<p>@Html.ActionLink("Add a Student", "AddStudent", new { id = Model.DepartmentId })</p>
+<p>@Html.ActionLink("Delete course", "Delete", new { id = Model.DepartmentId })</p>
+

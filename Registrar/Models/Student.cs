@@ -9,7 +9,7 @@ namespace Registrar.Models
         [Required(ErrorMessage = "Student name canot be empty!")]
         public string Name { get; set; }
         public int StudentId { get; set; }
-        public DateTime EnrollDate { get; set; }
+        public DateTime EnrollDate { get; set; }  
         public List<CourseStudent> JoinEntities { get; }
     }
 }

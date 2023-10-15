@@ -4,11 +4,10 @@ using System;
 
 namespace Registrar.Models
 {
-    public class CourseStudent
+    public class DepartmentStudent
     {
-        public int CourseStudentId { get; set; }
-        public int CourseId { get; set; }
-        public Course Course { get; set; }
+        public int DepartmentStudentId { get; set; }
+        public int DepartmentId { get; set; }
         public int StudentId { get; set; }
         public Student Student { get; set; }
     }
